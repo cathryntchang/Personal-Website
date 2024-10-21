@@ -1,0 +1,670 @@
+@import url(https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&family=Cinzel&family=Nanum+Gothic:wght@700&family=Playfair+Display+SC&family=Playfair+Display:wght@600&display=swap);
+
+/*Splash*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+.intro{
+    position: fixed;
+    z-index: 3000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(189, 151, 110);
+    transition: 1s;
+}
+.logo-header{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-family: "Playfair Display SC", serif;
+    text-transform: lowercase;
+}
+.name{
+    position: relative;
+    display: inline-block;
+    bottom: -20px;
+    opacity: 0;
+}
+.name.active{
+    bottom: 0;
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+.name.fade{
+    bottom: 150px;
+    opacity: 0;
+    transition: ease-in-out 0.5s;
+}
+
+#header{
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+}
+#header .header{
+    min-height: 8vh;
+    background-color: rgb(189, 151, 110);
+    opacity: 0.8;
+    transition: .3s ease background-color;
+}
+#header .logo a{
+    color: white;
+    text-decoration: none;
+    font-family: "Playfair Display SC", serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+#header h1{
+    transition: .5s ease left;
+    animation: movedown 1s linear;
+    animation-delay: 3s;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+}
+#header .navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1250px;
+    padding: 2px;
+}
+
+#header .navlist ul{
+    list-style: none;
+    position: absolute;
+    background-color: rgba(10, 10, 10, 0.7);
+    width: 100vw;
+    height: 100vh;
+    left: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: .5s ease left;
+    animation: movedown 1s linear;
+    animation-delay: 3.5s;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+}
+#header .navlist ul.active{
+    left: 0;
+}
+#header .navlist ul a{
+    font-size: 2.5rem;
+    font-family: "Playfair Display SC", serif;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-weight: 500;
+    letter-spacing: .2rem;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    display: block;
+}
+
+/*Header End*/
+
+
+#header .navlist{
+    background-color: transparent;   
+}
+#header .navlist ul{
+    position: initial;
+    display: block;
+    height: auto;
+    width: fit-content;
+    background-color: transparent;
+}
+#header .navlist ul a{
+    padding: 12px;
+}
+#header .navlist ul li a{
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+#header .navlist ul li{
+    display: inline-block;
+}
+#header .navlist ul a::after{
+    display: none;
+}
+
+
+/*Hero*/
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#hero{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-image: url(hero.jpg);
+    background-size:cover;
+    background-position: tio center;
+    position: relative;
+    z-index: 1;
+}
+#hero:after{
+    content: '';
+    position:absolute;
+    left: 0;
+    top: 0;
+    height:100%;
+    width:100%;
+    background-color: black;
+    opacity: .5;
+    z-index: -1;
+}
+#hero .hero{
+    max-width: 1100px;
+    margin: 0 auto;
+    justify-content: flex-start;
+}
+#hero h1:nth-child(1){
+    font-family: "Playfair Display", serif;
+    text-transform: uppercase;
+    color: white;
+    font-size: 40px;
+    padding: 0 25px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    position: flex;
+    opacity: 0;
+    animation: fadeIn 0.5s linear;
+    animation-delay: 5s;
+    animation-fill-mode: forwards;
+    padding-top: 20px;
+}
+#hero h1:nth-child(2){
+    color: rgb(189, 151, 110);
+    position: flex;
+    font-weight: bold;
+    font-size: 50px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background: linear-gradient(
+        to right, 
+        rgb(189, 151, 110) 10%, 
+        hsl(0, 0%, 100%) 40%, 
+        rgb(189, 151, 110) 60%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 25px;
+    transition: .5s ease left;
+    opacity: 0;
+    animation: fadeIn 1s linear;
+    animation-delay: 5.5s;
+    animation-fill-mode: forwards;
+}
+#scroll-btn{
+    position: absolute;
+    height: 45px;
+    width: 30px;
+    border: 3px solid white;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    border-radius: 20px;
+    animation: moveup .5s ease-in;
+    animation-delay: 6.5s;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+}
+#scroll-btn:before{
+    content: "";
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    height: 9px;
+    width: 9px;
+    background-color: white;
+    border-radius: 50%;
+    animation: move-down 2s infinite;
+}
+#scroll-btn:after {
+    position: absolute;
+    content: "SCROLL DOWN";
+    width: 12em;
+    display: block;
+    width: 12em;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    letter-spacing: 3px;
+    font-weight: 250;
+    left: -60px;
+    bottom: -30px;
+    font-family: "Playfair Display SC", serif;
+}
+#hero .social{
+    display: inline;
+    padding-right: 20px;
+}
+.fa-phone{
+    margin-left: 30px;
+    color: white;
+}
+.fa-envelope{
+    color: white;
+}
+.fa-instagram{
+    color: white;
+}
+.fa-linkedin{
+    color: white;
+}
+/*Hero End*/
+
+/*About*/
+#about{
+    width: 100%;
+    padding: 70px 0px;
+    background-color: white;
+}
+#about img{
+    height: auto;
+    width: 420px;
+}
+.about-text{
+    width: 550px;
+}
+.main{
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.about-text h1{
+    color: rgb(189, 151, 110);
+    font-size: 60px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    background: linear-gradient(
+        to right, 
+        rgb(189, 151, 110) 0, 
+        hsl(0, 0%, 100%) 10%, 
+        rgb(189, 151, 110) 20%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine1 3s infinite linear; 
+    animation-duration: 1s;
+}
+.about-text h5{
+    color: black;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    animation-delay: 3s;
+    animation-duration: 4s;
+}
+.about-text p{
+    color: black;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 40px;
+    animation-delay: 4s;
+    animation-duration: 4s;
+}
+button{
+    background: rgb(189, 151, 110);
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-family: "Playfair Display SC", serif;
+    font-size: 18px;
+    padding: 10px 25px;
+    transition: .4s ease;
+    margin-right: 15px;
+}
+button a:link, button a:visited{
+    text-decoration: none;
+    color: inherit;
+}
+button:hover{
+    background: transparent;
+    color: rgb(189, 151, 110);
+    border: 2px solid rgb(189, 151, 110);
+    cursor: pointer;
+}
+/*About Me*/
+
+/*Extracurricular Section*/
+#extracurriculars{
+    background-color: rgb(189, 151, 110);
+}
+.extraheader h1{
+    color: white;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 100px;
+    animation-duration: 1s;
+    
+}
+#extracurriculars .extracurriculars{
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+#extracurriculars .extracontainer{
+    padding-bottom: 100px;
+}
+#extracurriculars .extraheader{
+    margin-left: 18.5vw;
+    margin-bottom: 5vh;
+    text-align: center;
+    display: flex;
+}
+#extracurriculars .allextras{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#extracurriculars .extra-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+#extracurriculars .extra-info{
+    padding: 20px;
+    flex-basis: 50%;
+    background-color: rgb(255, 255, 255, 0.9);
+    width: 400px;
+    height: 100%;
+    min-height: 200px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    color: rgb(189, 151, 110);
+
+}
+#extracurriculars .extra-info h1{
+    font-size: 2rem;
+}
+#extracurriculars .extra-info h2{
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+#extracurriculars .extra-info p{
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+#extracurriculars .extra-img img{
+    flex-basis: 50%;
+    height: 300px;
+    width: 450px;
+    overflow: hidden;
+    position: relative;
+    transition: .3s ease transform;
+}
+#extracurriculars .extra-img:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+}
+#extracurriculars .extra-item:hover .extra-img img{
+    transform: scale(1.1);
+}
+/*End Extracurricular Section*/
+
+/*Hobbies Section*/
+#awards .awardcontainer{
+    padding-top: 2px;
+    background-color: rgb(189, 151, 110);
+}
+.awardheader h1{
+    color: white;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+#awards .hobbies{
+    font-family: "Playfair Display SC", serif;
+    color: white;
+    text-align: center;
+}
+
+#awards .hobbies li{
+    padding-bottom: 20px;
+}
+   
+/*End Hobbies Section*/
+
+/*Contact Section*/
+
+
+#contact .contactcontainer{
+    background-color: rgb(189, 151, 110);
+    padding-bottom: 20px;
+}
+#contact h1{
+    padding-top: 50px;
+    text-transform: uppercase;
+    font-size: 40px;
+    margin-bottom: 2rem;
+    color: white;
+    animation-duration: 1s;
+    text-align: center;
+}
+#contact form{
+    display: flex;
+    margin-left: 35vw;
+    flex-direction: column;
+    width: 30vw;
+    gap: 1.2rem;
+
+
+}
+input,
+select,
+textarea{
+    padding: 1.4rem;
+    background: white;
+    border-radius: 5px;
+    border: transparent;
+    font-family: 'Times New Roman', serif;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+textarea{
+    height: 8rem;
+    font-family: 'Times New Roman', serif;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+#contact button{
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    width: 100px;
+    margin-bottom: 30px;
+}
+#contact button:hover{
+    background: white;
+    color: rgb(189, 151, 110);
+    cursor: pointer;
+}
+#contact .contactinfo h2{
+    color: white;
+    margin-left: 20px;
+    font-size: 25px;
+    max-width: 500px;
+    padding: 20px 0;
+}
+#contact .contactinfo hr{
+    width: 1200px;
+    color: white;
+    border: 0.2px white solid;
+    background-color: white;
+    margin-bottom: 0;
+}
+#contact p{
+    margin-top: 10px;
+    color: white;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+#contact .social{
+    display: inline;
+    padding-right: 10px;
+}
+/*End Contact Section*/
+
+/*Keyframes*/
+@keyframes movedown{
+    0%{
+        transform: translateY(-100px);
+        visibility: visible;
+    }
+    100%{
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+@keyframes moveup{
+    0%{
+        transform: translateY(50px);
+        visibility: visible;
+    }
+    100%{
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+@keyframes fadeIn{
+    to{
+        opacity: 1;
+    }
+}
+@keyframes shine{
+    0%{
+        background-position: 0;
+    }
+    60%{
+        background-position: 323px;
+    }
+    100%{
+        background-position: 323px;
+    }
+}
+@keyframes shine1{
+    0%{
+        background-position: 0;
+    }
+    60%{
+        background-position: 420px;
+    }
+    100%{
+        background-position: 420px;
+    }
+}
+@keyframes move-down{
+    80%{
+        opacity: 0.5;
+    }
+    100%{
+        transform: translateY(15px);
+        opacity: 0;
+    }
+}
+
+/*Keyframes End*/
+
+/*Media Query for Desktop*/
+@media only screen and (min-width: 768px){
+    .about-text h1{
+        background: linear-gradient(
+            to right, 
+            rgb(189, 151, 110) 0, 
+            hsl(0, 0%, 100%) 10%, 
+            rgb(189, 151, 110) 20%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine1 3s infinite linear; 
+    }
+ 
+    #extracurriculars .extra-item{
+        flex-direction: row;
+    }
+    #extracurriculars .extra-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+    #extracurriculars .extra-item{
+        height: 300px;
+        margin: 0;
+        width: 90%;
+    }
+    #extracurriculars .extra-info{
+        height: 300px; 
+        width: 450px;
+    }
+    #extracurriculars .extra-item .extra-img{ 
+        width: 450px;
+    }
+    #extracurriculars .extracontainer{
+        padding-bottom: 100px;
+    }
+    #extracurriculars .allextras .extra-info{
+        height: 100%;
+        max-width: 450px;
+    }
+    #extracurriculars .allextras .extra-img{
+        height: 100%;
+    }
+    
+    hr{
+        margin-right: 40px;
+        width: 1100px;
+
+    }
+    
+}
+/*End Media Query for Desktop*/
